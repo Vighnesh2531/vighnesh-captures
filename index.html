@@ -9,7 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" xintegrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bungee&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap">
     <style>
-      /* Styles from style.css */
+      /* Base Styles */
+      body {
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden; /* Prevent horizontal scrolling */
+      }
+
       .nav-logo {
           height: 80px;
           padding: 10px;
@@ -20,10 +26,13 @@
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
+          min-height: 100vh; /* Ensure background covers full height */
       }
 
       .item-nav {
           color: aliceblue;
+          font-family: "Fira Code", monospace; /* Consistent font for nav items */
+          font-size: 1.1rem;
       }
       .item-nav:hover {
           color: rgb(241, 227, 18);
@@ -34,29 +43,30 @@
       }
 
       .body-section {
-          height: 85vh;
-          display: flex; /* Added to center content vertically */
-          align-items: center; /* Added to center content vertically */
+          min-height: 85vh; /* Use min-height to allow content to expand */
+          display: flex;
+          align-items: center;
+          padding: 20px 0; /* Add vertical padding */
       }
 
       .box-left {
           color: aliceblue;
           font-family: "Rowdies", sans-serif;
           text-align: center;
-          padding-top: 15px;
+          padding: 15px; /* Add padding for content inside box */
       }
 
       .box-right {
-          margin: 0%;
-          display: flex; /* Added for image centering */
-          justify-content: center; /* Added for image centering */
-          align-items: center; /* Added for image centering */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 15px; /* Add padding for image inside box */
       }
 
       .body-img {
-          height: 350px;
-          object-fit: contain; /* Ensures image fits within its bounds */
-          padding-left: 0; /* Removed fixed padding */
+          max-height: 350px; /* Max height for desktop */
+          width: 100%; /* Make image fluid within its container */
+          object-fit: contain;
       }
 
       .body-para {
@@ -72,6 +82,7 @@
           text-align: center;
           font-size: 45px;
           padding-top: 30px;
+          margin-bottom: 30px; /* Space below heading */
       }
 
       .About-p {
@@ -106,7 +117,7 @@
 
       /* Gallery Section */
       .Gallery-view {
-          padding-top: 50px; /* Adjusted for better spacing */
+          padding-top: 50px;
           padding-bottom: 30px;
       }
 
@@ -121,7 +132,8 @@
           object-fit: cover; /* Cover the area, cropping if necessary */
           border: 2px solid white;
           margin-bottom: 20px; /* Add space between images */
-          transition: transform 0.3s ease; /* Smooth hover effect */
+          transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+          border-radius: 8px; /* Rounded corners for gallery images */
       }
 
       .Gallery1-left-img:hover,
@@ -141,66 +153,150 @@
       /* Contact Section */
       .Contact-web {
           padding-top: 80px;
-          padding-bottom: 100px; /* Reduced bottom padding */
+          padding-bottom: 100px;
       }
 
       .contact-info {
-          padding-top: 30px; /* Corrected typo */
+          padding-top: 30px;
           text-align: center;
           font-family: "Fira Code", monospace;
           color: aliceblue;
+          font-size: 1.1rem;
       }
 
       .social-icons {
-          text-align: center; /* Center the social icons */
+          text-align: center;
           padding-top: 20px;
       }
 
       .social-icon-img,
       .social-icon-img1 {
-          height: 50px; /* Unified height for social icons */
-          width: auto; /* Maintain aspect ratio */
-          margin: 0 10px; /* Space between icons */
-          vertical-align: middle; /* Align icons nicely */
+          height: 50px;
+          width: auto;
+          margin: 0 15px; /* Increased space between icons */
+          vertical-align: middle;
+          transition: transform 0.2s ease;
+      }
+
+      .social-icon-img:hover,
+      .social-icon-img1:hover {
+          transform: translateY(-5px); /* Lift effect on hover */
       }
 
       /* Responsive adjustments */
-      @media (max-width: 768px) {
-          .body-section {
-              height: auto; /* Allow height to adjust on smaller screens */
-              padding-top: 20px;
-              padding-bottom: 20px;
-          }
-          .box-left, .box-right {
-              width: 100%; /* Full width on small screens */
-              text-align: center;
-          }
-          .body-img {
-              height: 250px; /* Smaller image on mobile */
-              padding-left: 0;
-          }
-          .body-para, .About-p {
-              padding-left: 15px;
-              padding-right: 15px;
-              font-size: 16px;
-          }
-          .About-h1 {
-              font-size: 35px;
+      @media (max-width: 992px) { /* Medium devices (tablets) */
+          .About-p {
+              padding-left: 50px;
+              padding-right: 50px;
+              font-size: 14px;
           }
           .box2-left-img, .box2-middle-img, .box2-right-img,
           .box3-left-img, .box3-middle-img, .box3-right-img {
-              height: 150px; /* Smaller logos on mobile */
-              margin-top: 20px;
-              padding-left: 0;
+              height: 180px;
           }
           .Gallery1-left-img, .Gallery1-right-img,
           .Gallery2-left-img, .Gallery2-right-img,
           .Gallery3-left-img, .Gallery3-right-img {
-              height: 200px; /* Smaller gallery images on mobile */
+              height: 250px;
+          }
+      }
+
+      @media (max-width: 768px) { /* Small devices (phones) */
+          .navbar-brand {
+              padding-left: 10px;
+          }
+          .nav-logo {
+              height: 60px;
+              padding: 5px;
+          }
+          .navbar-toggler {
+              margin-right: 10px;
+          }
+          .navbar-collapse {
+              background-color: rgba(0, 0, 0, 0.8); /* Darker background for collapsed menu */
+              border-radius: 8px;
+              margin-top: 10px;
+              padding: 10px;
+          }
+          .navbar-nav {
+              align-items: center; /* Center nav items when collapsed */
+          }
+          .nav-item {
+              margin: 5px 0;
+          }
+          .item-nav {
+              font-size: 1rem;
+          }
+
+          .body-section {
+              min-height: auto;
+              padding-top: 40px;
+              padding-bottom: 40px;
+          }
+          .box-left, .box-right {
+              width: 100%;
+              text-align: center;
+              padding: 10px;
+          }
+          .body-img {
+              max-height: 280px; /* Adjust image size for smaller screens */
+          }
+          .body-para {
+              font-size: 16px;
+              text-align: center; /* Center text on small screens */
+          }
+          .About-h1 {
+              font-size: 38px;
+              padding-top: 20px;
+          }
+          .About-p {
+              padding-left: 15px;
+              padding-right: 15px;
+              font-size: 14px;
+          }
+          .box2-left-img, .box2-middle-img, .box2-right-img,
+          .box3-left-img, .box3-middle-img, .box3-right-img {
+              height: 150px;
+              margin-top: 20px;
+          }
+          .Gallery1-left-img, .Gallery1-right-img,
+          .Gallery2-left-img, .Gallery2-right-img,
+          .Gallery3-left-img, .Gallery3-right-img {
+              height: 180px;
+          }
+          .contact-info {
+              font-size: 1rem;
+          }
+          .social-icon-img, .social-icon-img1 {
+              height: 45px;
+              margin: 0 10px;
+          }
+      }
+
+      @media (max-width: 576px) { /* Extra small devices */
+          .body-img {
+              max-height: 200px;
+          }
+          .About-h1 {
+              font-size: 30px;
+          }
+          .body-para {
+              font-size: 15px;
+          }
+          .About-p {
+              font-size: 13px;
+          }
+          .box2-left-img, .box2-middle-img, .box2-right-img,
+          .box3-left-img, .box3-middle-img, .box3-right-img {
+              height: 120px;
+          }
+          .Gallery1-left-img, .Gallery1-right-img,
+          .Gallery2-left-img, .Gallery2-right-img,
+          .Gallery3-left-img, .Gallery3-right-img {
+              height: 150px;
           }
           .social-icon-img, .social-icon-img1 {
               height: 40px;
-              padding-left: 0; /* Remove fixed padding */
           }
       }
     </style>
