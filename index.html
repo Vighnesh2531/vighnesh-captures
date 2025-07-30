@@ -1,370 +1,535 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vighnesh Captures</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" xintegrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" xintegrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bungee&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <style>
-      /* Styles from style.css */
+      @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Fira+Code:wght@300..700&display=swap');
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Fira Code', monospace;
+        background: url("https://res.cloudinary.com/nihars3/image/upload/v1696232927/photo-1619429858348-2d5ad1547e6c_nnvynb.jpg") center/cover no-repeat fixed;
+        color: white;
+        padding-top: 20px;
+      }
+
+      /* Navbar with transparent dark overlay + blur */
+      .navbar {
+        position: static;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+      }
+
+      .nav-link {
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #ffd700;
+      }
+
       .nav-logo {
-          height: 80px;
-          padding: 10px;
+        height: 60px;
       }
 
-      .self-body {
-          background-image: url("https://res.cloudinary.com/nihars3/image/upload/v1696232927/photo-1619429858348-2d5ad1547e6c_nnvynb.jpg");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
+      /* Sections and body-section transparent, text white */
+      .body-section,
+      section {
+        background: transparent !important;
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        color: white;
       }
 
-      .item-nav {
-          color: aliceblue;
-      }
-      .item-nav:hover {
-          color: rgb(241, 227, 18);
+      /* Reduce space between Hero and About */
+
+      #000 {
+        padding-bottom: 0rem;
       }
 
-      .anchor {
-          margin-left: auto;
+      /* Other sections padding */
+      #001, #002, #003 {
+        padding-top: 0rem;
+        padding-bottom: 1rem;
       }
 
-      .body-section {
-          height: 85vh;
-          display: flex; /* Added to center content vertically */
-          align-items: center; /* Added to center content vertically */
+      h1,
+      h2 {
+        font-family: 'Rowdies', sans-serif;
       }
 
-      .box-left {
-          color: aliceblue;
-          font-family: "Rowdies", sans-serif;
-          text-align: center;
-          padding-top: 15px;
+      /* TYPEWRITER EFFECT */
+      .typewriter {
+        overflow: hidden;
+        border-right: 0.15em solid #ffd700;
+        white-space: nowrap;
+        animation:
+          typing 3.5s steps(25, end),
+          blink-caret 0.75s step-end infinite;
+        font-size: 3rem;
+        color: #ffd700;
       }
 
-      .box-right {
-          margin: 0%;
-          display: flex; /* Added for image centering */
-          justify-content: center; /* Added for image centering */
-          align-items: center; /* Added for image centering */
+      .typewriter.finished {
+        border-right: none;
+        width: 100%;
       }
 
-      .body-img {
-          height: 350px;
-          object-fit: contain; /* Ensures image fits within its bounds */
-          padding-left: 0; /* Removed fixed padding */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      /* Fade in subheader */
+      .fade-in {
+        opacity: 0;
+        animation: fadeInAnim 2s ease forwards;
+        animation-delay: 3.5s;
+      }
+
+      @keyframes fadeInAnim {
+        to {
+          opacity: 1;
+        }
       }
 
       .body-para {
-          padding-top: 15px;
-          text-align: left;
-          font-family: "Fira Code", monospace;
-          font-size: 20px;
-      }
-
-      .About-h1 {
-          font-family: "Rowdies", sans-serif;
-          color: aliceblue;
-          text-align: center;
-          font-size: 45px;
-          padding-top: 30px;
+        font-size: 1.1rem;
+        color: white;
       }
 
       .About-p {
-          color: aliceblue;
-          padding-top: 15px;
-          text-align: center;
-          font-family: "Fira Code", monospace;
-          font-size: 15px;
-          padding-left: 150px;
-          padding-right: 150px;
+        text-align: center;
+        color: white;
       }
 
-      /* Skills Section Images */
-      .box2-left-img,
-      .box2-middle-img,
-      .box2-right-img,
-      .box3-left-img,
-      .box3-middle-img,
-      .box3-right-img {
-          height: 200px; /* Unified height for software logos */
-          width: auto; /* Maintain aspect ratio */
-          display: block; /* Center block images */
-          margin: 30px auto 0; /* Top margin and auto horizontal margin for centering */
-          object-fit: contain;
+      .gallery-img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease-in-out, border 0.3s;
+        border: 2px solid white;
+        border-radius: 8px;
       }
 
-      .box3-left-img,
-      .box3-middle-img,
-      .box3-right-img {
-          height: 300px; /* Unified height for skill logos */
+      .gallery-img:hover {
+        transform: scale(1.05);
+        border: 3px solid #ffd700;
+        box-shadow: 0 0 15px #ffd700;
+        cursor: pointer;
       }
 
-      /* Gallery Section */
-      .Gallery-view {
-          padding-top: 50px; /* Adjusted for better spacing */
-          padding-bottom: 30px;
-      }
-
-      .Gallery1-left-img,
-      .Gallery1-right-img,
-      .Gallery2-left-img,
-      .Gallery2-right-img,
-      .Gallery3-left-img,
-      .Gallery3-right-img {
-          width: 100%; /* Make images responsive within their columns */
-          height: 300px;
-          object-fit: cover; /* Cover the area, cropping if necessary */
-          border: 2px solid white;
-          margin-bottom: 20px; /* Add space between images */
-          transition: transform 0.3s ease; /* Smooth hover effect */
-      }
-
-      .Gallery1-left-img:hover,
-      .Gallery1-right-img:hover,
-      .Gallery2-left-img:hover,
-      .Gallery2-right-img:hover,
-      .Gallery3-left-img:hover,
-      .Gallery3-right-img:hover {
-          transform: scale(1.03); /* Slightly enlarge on hover */
-          border-color: rgb(241, 227, 18); /* Change border color on hover */
-      }
-
-      .Box4, .Box5, .Box6 {
-          padding-bottom: 30px;
-      }
-
-      /* Contact Section */
       .Contact-web {
-          padding-top: 80px;
-          padding-bottom: 100px; /* Reduced bottom padding */
-      }
-
-      .contact-info {
-          padding-top: 30px; /* Corrected typo */
-          text-align: center;
-          font-family: "Fira Code", monospace;
-          color: aliceblue;
-      }
-
-      .social-icons {
-          text-align: center; /* Center the social icons */
-          padding-top: 20px;
+        text-align: center;
+        padding: 3rem 1rem;
+        max-width: 600px;
+        margin: auto;
+        color: white;
       }
 
       .social-icon-img,
       .social-icon-img1 {
-          height: 50px; /* Unified height for social icons */
-          width: auto; /* Maintain aspect ratio */
-          margin: 0 10px; /* Space between icons */
-          vertical-align: middle; /* Align icons nicely */
+        height: 40px;
+        margin: 0 10px;
+        transition: transform 0.3s ease;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-          .body-section {
-              height: auto; /* Allow height to adjust on smaller screens */
-              padding-top: 20px;
-              padding-bottom: 20px;
-          }
-          .box-left, .box-right {
-              width: 100%; /* Full width on small screens */
-              text-align: center;
-          }
-          .body-img {
-              height: 250px; /* Smaller image on mobile */
-              padding-left: 0;
-          }
-          .body-para, .About-p {
-              padding-left: 15px;
-              padding-right: 15px;
-              font-size: 16px;
-          }
-          .About-h1 {
-              font-size: 35px;
-          }
-          .box2-left-img, .box2-middle-img, .box2-right-img,
-          .box3-left-img, .box3-middle-img, .box3-right-img {
-              height: 150px; /* Smaller logos on mobile */
-              margin-top: 20px;
-              padding-left: 0;
-          }
-          .Gallery1-left-img, .Gallery1-right-img,
-          .Gallery2-left-img, .Gallery2-right-img,
-          .Gallery3-left-img, .Gallery3-right-img {
-              height: 200px; /* Smaller gallery images on mobile */
-          }
-          .social-icon-img, .social-icon-img1 {
-              height: 40px;
-              padding-left: 0; /* Remove fixed padding */
-          }
+      .social-icon-img:hover,
+      .social-icon-img1:hover {
+        transform: scale(1.2);
+      }
+
+      /* Skill bars container */
+      .skill-container {
+        margin: 1.5rem 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+      }
+
+      /* Skill name */
+      .skill-name {
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+      }
+
+      /* Skill bar background */
+      .skill-bar {
+        height: 25px;
+        background-color: rgba(255, 215, 0, 0.3);
+      }
+
+      /* Skill bar fill - animated */
+      .skill-bar-fill {
+        height: 100%;
+        width: 0%;
+        background-color: #ffd700;
+        text-align: right;
+        padding-right: 10px;
+        color: black;
+        font-weight: 600;
+        border-radius: 30px 0 0 30px;
+        transition: width 2s ease;
+        white-space: nowrap;
+      }
+
+      /* Contact form styles */
+      form {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ffd700;
+      }
+
+      input,
+      textarea {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #ffd700;
+        color: white;
+      }
+
+      input:focus,
+      textarea:focus {
+        background-color: rgba(255, 255, 255, 0.2);
+        outline: none;
+        border-color: #ffd700;
+      }
+
+      label {
+        font-weight: 600;
+        color: #ffd700;
+      }
+
+      .error {
+        color: #ff4c4c;
+        font-size: 0.9rem;
+      }
+
+      .success-message {
+        color: #00ff00;
+        margin-top: 1rem;
+        font-weight: 600;
       }
     </style>
   </head>
+
   <body>
-    <div class="self-body">
-      <div class="navbar">
-        <nav class="navbar navbar-expand-lg bg-transparent w-100">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752484565/IMG_20250714_144456_erovrq.png" class="nav-logo" alt="logo" onerror="this.onerror=null;this.src='https://placehold.co/80x80/000000/FFFFFF?text=Logo'">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav anchor">
-                <li class="nav-item">
-                  <a class="nav-link item-nav" href="#000">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link item-nav" href="#001">Skills</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link item-nav" href="#002">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link item-nav" href="#003">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752484565/IMG_20250714_144456_erovrq.png" class="nav-logo" alt="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#000">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#001">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#002">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#003">Contact</a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
-      <div class="body-section d-flex flex-column justify-content-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="box-left col-md-7 col-12">
-              <h1>Vighnesh <span style="color: rgb(221, 207, 15);">Captures</span></h1>
-              <p class="body-para">Hi, I’m Vighnesh P, a 21-year-old born in Ongole and currently living in Madurai. I work at HCLTech as a TechBee trainee, where I’m growing my skills in the tech space. Alongside my professional journey, I’m also a passionate photographer and editor, always exploring new ways to tell stories visually.</p>
-            </div>
-            <div class="box-right col-md-5 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752480588/20250714_133924_lf1xpl.png" class="body-img img-fluid" alt="Picture" onerror="this.onerror=null;this.src='https://placehold.co/350x350/000000/FFFFFF?text=Profile+Picture'">
-            </div>
+    <!-- Hero / Intro -->
+    <section class="body-section" style="min-height: 80vh; padding-bottom: 0.5rem;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-7" data-aos="fade-right">
+            <h1 class="typewriter">
+              <span style="color: aliceblue;">Vighnesh <span style="color: #ffd700;">Captures</span></span>
+            </h1>
+            <p class="body-para fade-in">
+              Hi, I’m Vighnesh P, a 21-year-old born in Ongole and currently living in Madurai. I work at HCLTech as a TechBee trainee, where I’m growing my skills in the tech space. Alongside my professional journey, I’m also a passionate photographer and editor, always exploring new ways to tell stories visually.
+            </p>
+          </div>
+          <div class="col-md-5 text-center" data-aos="fade-left">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752480588/20250714_133924_lf1xpl.png"
+              alt="Profile"
+              class="img-fluid rounded"
+            />
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="About-me">
-        <div class="container" id="000">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="About-h1">About-<span style="color: rgb(221, 207, 15);">Me</span></h1>
-              <p class="About-p">I'm a passionate photographer, videographer, and editor who loves capturing stories through visuals. I shoot with a Sony RX10 Mark III and a Realme 11 Pro, blending creativity with versatility. For editing, I use Adobe Lightroom for photo enhancement and DaVinci Resolve and Capcut for video projects, ranging from short reels to event coverage. Whether it's behind the lens or in post-production, I aim to bring out the best in every frame.</p>
-            </div>
+    <!-- About Me -->
+    <section id="000" data-aos="fade-up" style="padding-top: 0.5rem; padding-bottom: 1rem;">
+      <div class="container text-center">
+        <h2>About <span style="color: #ffd700">Me</span></h2>
+        <p class="About-p">
+          I'm a passionate photographer, videographer, and editor who loves capturing stories through visuals. I shoot with a Sony RX10 Mark III and a Realme 11 Pro, blending creativity with versatility. For editing, I use Adobe Lightroom for photo enhancement and DaVinci Resolve and Capcut for video projects, ranging from short reels to event coverage.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills with bars -->
+    <section id="001" data-aos="zoom-in">
+      <div class="container text-center">
+        <h2>
+          Skills &amp; <span style="color: #ffd700">Softwares</span>
+        </h2>
+
+        <!-- Skill bars -->
+        <div class="skill-container">
+          <div class="skill-name">Photography</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="85%">85%</div>
+          </div>
+        </div>
+
+        <div class="skill-container">
+          <div class="skill-name">Videography</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="75%">75%</div>
+          </div>
+        </div>
+
+        <div class="skill-container">
+          <div class="skill-name">Editing</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="80%">80%</div>
+          </div>
+        </div>
+
+        <div class="skill-container">
+          <div class="skill-name">Adobe Lightroom</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="70%">70%</div>
+          </div>
+        </div>
+
+        <div class="skill-container">
+          <div class="skill-name">DaVinci Resolve</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="65%">65%</div>
+          </div>
+        </div>
+
+        <div class="skill-container">
+          <div class="skill-name">Capcut</div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" data-skill-level="90%">90%</div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="Skills" id="001">
-        <div class="container my-5">
-          <div class="row text-center">
-            <div class="col-12">
-              <h1 class="About-h1">Skills & <span style="color: rgb(221, 207, 15);">Softwares</span></h1>
-            </div>
-
-            <div class="box3-left col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752657016/20250716_143701_rqsqsm.png" class="box3-left-img img-fluid" alt="Photography_logo" onerror="this.onerror=null;this.src='https://placehold.co/300x300/000000/FFFFFF?text=Photography'">
-            </div>
-            <div class="box3-middle col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752657018/20250716_143809_lxt6ag.png" class="box3-middle-img img-fluid" alt="Videography_logo" onerror="this.onerror=null;this.src='https://placehold.co/300x300/000000/FFFFFF?text=Videography'">
-            </div>
-            <div class="box3-right col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752657015/20250716_143837_osaoiq.png" class="box3-right-img img-fluid" alt="Editing_logo" onerror="this.onerror=null;this.src='https://placehold.co/300x300/000000/FFFFFF?text=Editing'">
-            </div>
-
-            <div class="box2-left col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752654649/1706269690lightroom-logo-transparent_iklgse.png" class="box2-left-img img-fluid" alt="Lightroom_logo" onerror="this.onerror=null;this.src='https://placehold.co/200x200/000000/FFFFFF?text=Lightroom'">
-            </div>
-            <div class="box2-middle col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752655139/png-transparent-davinci-resolve-alt-macos-bigsur-icon-thumbnail-removebg-preview_ok6eq3.png" class="box2-middle-img img-fluid" alt="DaVinci_logo" onerror="this.onerror=null;this.src='https://placehold.co/226x226/000000/FFFFFF?text=DaVinci'">
-            </div>
-            <div class="box2-right col-md-4 col-12">
-              <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752655424/1691746000capcut-logo_2_zfojmn.png" class="box2-right-img img-fluid" alt="Capcut_logo" onerror="this.onerror=null;this.src='https://placehold.co/200x200/000000/FFFFFF?text=Capcut'">
-            </div>
+    <!-- Gallery -->
+    <section id="002" class="py-5" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center mb-4">
+          Gallery <span style="color: #ffd700">View</span>
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498188/Vighnesh_52203802_Madurai_pukpxy.jpg"
+              class="gallery-img"
+              alt="Gallery1"
+            />
+          </div>
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498193/DSC09799_ejojf0.jpg"
+              class="gallery-img"
+              alt="Gallery2"
+            />
+          </div>
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671020/DSC04378_cazuw4.jpg"
+              class="gallery-img"
+              alt="Gallery3"
+            />
+          </div>
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671010/DSC04414_nvsnbt.jpg"
+              class="gallery-img"
+              alt="Gallery4"
+            />
+          </div>
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/c_crop,ar_16:9/v1752671010/DSC09751_pvhxo0.jpg"
+              class="gallery-img"
+              alt="Gallery5"
+            />
+          </div>
+          <div class="col-md-6" data-aos="zoom-in">
+            <img
+              src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/v1752671009/DSC09773_rhjvs8.jpg"
+              class="gallery-img"
+              alt="Gallery6"
+            />
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="Gallery-view" id="002">
-        <div class="container">
-          <div class="Gallery1">
-            <div class="row">
-              <div class="Box4 col-12">
-                <h1 class="About-h1">Gallery <span style="color: rgb(221, 207, 15);">View</span></h1>
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498188/Vighnesh_52203802_Madurai_pukpxy.jpg" class="Gallery1-left-img img-fluid" alt="photo1" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+1'">
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498193/DSC09799_ejojf0.jpg" class="Gallery1-right-img img-fluid" alt="Photo2" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+2'">
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Contact -->
+    <section id="003" class="Contact-web" data-aos="fade-up">
+      <div class="container">
+        <h2>Contact <span style="color: #ffd700;">Info</span></h2>
 
-        <div class="container">
-          <div class="Gallery2">
-            <div class="row">
-              <div class="Box5 col-12">
-                <h1 class="About-h1"> <span style="color: rgb(221, 207, 15);"> </span></h1>
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671020/DSC04378_cazuw4.jpg" class="Gallery2-left-img img-fluid" alt="photo1" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+3'">
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671010/DSC04414_nvsnbt.jpg" class="Gallery2-right-img img-fluid" alt="Photo2" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+4'">
-              </div>
-            </div>
+        <form id="contactForm" action="https://formspree.io/f/mwpqqkzq" method="POST" novalidate>
+          <div class="mb-3 text-start">
+            <label for="name" class="form-label">Name*</label>
+            <input type="text" class="form-control" id="name" name="name" required />
+            <div class="error" id="nameError"></div>
           </div>
-        </div>
+          <div class="mb-3 text-start">
+            <label for="email" class="form-label">Email*</label>
+            <input type="email" class="form-control" id="email" name="email" required />
+            <div class="error" id="emailError"></div>
+          </div>
+          <div class="mb-3 text-start">
+            <label for="message" class="form-label">Message*</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            <div class="error" id="messageError"></div>
+          </div>
+          <button type="submit" class="btn btn-warning w-100">Send</button>
+          <div class="success-message" id="successMessage" style="display: none;">
+            Thanks for reaching out! I'll get back to you soon.
+          </div>
+        </form>
 
-        <div class="container">
-          <div class="Gallery3">
-            <div class="row">
-              <div class="Box6 col-12">
-                <h1 class="About-h1"> <span style="color: rgb(221, 207, 15);"> </span></h1>
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/c_crop,ar_16:9/v1752671010/DSC09751_pvhxo0.jpg" class="Gallery3-left-img img-fluid" alt="photo1" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+5'">
-              </div>
-              <div class="col-md-6 col-12">
-                <img src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/v1752671009/DSC09773_rhjvs8.jpg" class="Gallery3-right-img img-fluid" alt="Photo2" onerror="this.onerror=null;this.src='https://placehold.co/600x300/000000/FFFFFF?text=Gallery+Image+6'">
-              </div>
-            </div>
-          </div>
+        <div class="d-flex justify-content-center mt-4">
+          <a href="https://www.instagram.com/v4_vigu" target="_blank" rel="noopener">
+            <img
+              src="https://pngimg.com/uploads/instagram/instagram_PNG11.png"
+              class="social-icon-img"
+              alt="Instagram"
+            />
+          </a>
+          <a href="https://wa.me/7013781657" target="_blank" rel="noopener">
+            <img
+              src="https://pluspng.com/img-png/whatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050.png"
+              class="social-icon-img1"
+              alt="WhatsApp"
+            />
+          </a>
         </div>
       </div>
+    </section>
 
-      <div class="container Contact-web" id="003">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="About-h1">Contact-<span style="color: rgb(221, 207, 15);">Info </span></h1>
-          </div>
-        </div>
-        <div class="contact-info">
-          <p>Vighnesh Padmanabhuni</p>
-          <p>+91 7013781657</p>
-          <p>vignesp2017@gmail.com</p>
-        </div>
-        <div class="social-icons">
-          <div class="social-icon">
-            <a href="https://www.instagram.com/v4_vigu" target="_blank">
-              <img src="https://pngimg.com/uploads/instagram/instagram_PNG11.png" class="social-icon-img" alt="Instagram" onerror="this.onerror=null;this.src='https://placehold.co/50x50/000000/FFFFFF?text=IG'">
-            </a>
-            <a href="https://wa.me/7013781657" target="_blank">
-              <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpluspng.com%2Fimg-png%2Fwhatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050.png&f=1&nofb=1&ipt=85f871aad0741fbcebd9306bc65c2204ef837091b2ef9204cc6c598f712247c4" class="social-icon-img1" alt="WhatsApp" onerror="this.onerror=null;this.src='https://placehold.co/65x65/000000/FFFFFF?text=WA'">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+      // Animate skill bars on scroll
+      function animateSkills() {
+        const skills = document.querySelectorAll('.skill-bar-fill');
+        skills.forEach((skill) => {
+          const skillLevel = skill.getAttribute('data-skill-level');
+          const rect = skill.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            skill.style.width = skillLevel;
+          }
+        });
+      }
+
+      window.addEventListener('scroll', animateSkills);
+      window.addEventListener('load', animateSkills);
+
+      // Contact form validation and submission
+      const form = document.getElementById('contactForm');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const messageError = document.getElementById('messageError');
+      const successMessage = document.getElementById('successMessage');
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let valid = true;
+        nameError.textContent = '';
+        emailError.textContent = '';
+        messageError.textContent = '';
+        successMessage.style.display = 'none';
+
+        if (nameInput.value.trim() === '') {
+          nameError.textContent = 'Please enter your name.';
+          valid = false;
+        }
+
+        if (!validateEmail(emailInput.value.trim())) {
+          emailError.textContent = 'Please enter a valid email.';
+          valid = false;
+        }
+
+        if (messageInput.value.trim() === '') {
+          messageError.textContent = 'Please enter your message.';
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        // Submit form with Formspree
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              form.reset();
+              successMessage.style.display = 'block';
+            } else {
+              alert('Oops! There was a problem submitting your form.');
+            }
+          })
+          .catch(() => {
+            alert('Oops! There was a problem submitting your form.');
+          });
+      });
+
+      // Stop blinking cursor after typing finishes
+      const typewriter = document.querySelector('.typewriter');
+      typewriter.addEventListener('animationend', () => {
+        typewriter.classList.add('finished');
+      });
+    </script>
   </body>
 </html>
+
