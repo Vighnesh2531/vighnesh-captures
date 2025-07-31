@@ -56,12 +56,12 @@
         color: white;
       }
 
-      /* Reduce space between Hero and About */
+      /* Reduce space between Hero and About (This was for desktop, we'll override for mobile) */
       #000 {
         padding-bottom: 0rem;
       }
 
-      /* Other sections padding */
+      /* Other sections padding (This was for desktop, we'll override for mobile) */
       #001, #002, #003 {
         padding-top: 0rem;
         padding-bottom: 1rem;
@@ -83,19 +83,6 @@
         font-size: 3rem; /* Base font size */
         color: #ffd700;
       }
-
-      /* Adjust typewriter font size for smaller screens */
-      @media (max-width: 768px) {
-        .typewriter {
-          font-size: 2rem;
-        }
-      }
-      @media (max-width: 576px) {
-        .typewriter {
-          font-size: 1.5rem;
-        }
-      }
-
 
       .typewriter.finished {
         border-right: none;
@@ -161,13 +148,6 @@
         max-width: 600px;
         margin: auto;
         color: white;
-      }
-
-      /* Adjust Contact section padding for smaller screens */
-      @media (max-width: 576px) {
-        .Contact-web {
-          padding: 2rem 0.5rem;
-        }
       }
 
       .social-icon-img,
@@ -255,10 +235,48 @@
         font-weight: 600;
       }
 
-      /* Optional: Adjust background attachment for mobile for potential performance */
-      @media (max-width: 768px) {
+      /* --- MEDIA QUERIES FOR MOBILE SPACING --- */
+      @media (max-width: 767.98px) { /* Targets screens smaller than Bootstrap's 'md' breakpoint */
         body {
-          background-attachment: scroll;
+          padding-top: 10px; /* Adjust top padding for overall page */
+          background-attachment: scroll; /* Change background to scroll on mobile for better performance */
+        }
+
+        /* Increase vertical padding for all main sections */
+        .body-section,
+        section {
+          padding-top: 3rem !important; /* Approximately 2-3 fingers gap from top */
+          padding-bottom: 3rem !important; /* Approximately 2-3 fingers gap from bottom */
+          min-height: unset; /* Allow sections to shrink on mobile */
+        }
+
+        /* Adjust specific sections if needed, though general rule above should cover it */
+        #000, #001, #002, #003 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        /* Adjust font size for smaller screens for better readability */
+        h1 {
+          font-size: 2.2rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        .typewriter {
+          font-size: 1.8rem; /* Adjusted for mobile */
+        }
+
+        .body-para, .About-p {
+          font-size: 1rem;
+        }
+
+        .Contact-web {
+          padding: 2rem 1rem; /* Adjust padding for contact form on mobile */
+        }
+
+        .navbar-brand .nav-logo {
+            height: 45px; /* Smaller logo on mobile */
         }
       }
     </style>
@@ -376,42 +394,48 @@
               src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498188/Vighnesh_52203802_Madurai_pukpxy.jpg"
               class="gallery-img"
               alt="Gallery1"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img
               src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752498193/DSC09799_ejojf0.jpg"
               class="gallery-img"
               alt="Gallery2"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img
               src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671020/DSC04378_cazuw4.jpg"
               class="gallery-img"
               alt="Gallery3"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img
               src="https://res.cloudinary.com/dokg4uydm/image/upload/v1752671010/DSC04414_nvsnbt.jpg"
               class="gallery-img"
               alt="Gallery4"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img
               src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/c_crop,ar_16:9/v1752671010/DSC09751_pvhxo0.jpg"
               class="gallery-img"
               alt="Gallery5"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
           <div class="col-md-6" data-aos="zoom-in">
             <img
               src="https://res.cloudinary.com/dokg4uydm/image/upload/a_-90/v1752671009/DSC09773_rhjvs8.jpg"
               class="gallery-img"
               alt="Gallery6"
-              loading="lazy" />
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -550,4 +574,3 @@
     </script>
   </body>
 </html>
-
