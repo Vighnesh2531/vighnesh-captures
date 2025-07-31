@@ -235,48 +235,48 @@
         font-weight: 600;
       }
 
-      /* --- MEDIA QUERIES FOR MOBILE SPACING --- */
+      /* --- MEDIA QUERIES FOR MOBILE ADJUSTMENTS --- */
       @media (max-width: 767.98px) { /* Targets screens smaller than Bootstrap's 'md' breakpoint */
         body {
           padding-top: 10px; /* Adjust top padding for overall page */
           background-attachment: scroll; /* Change background to scroll on mobile for better performance */
         }
 
-        /* Increase vertical padding for all main sections */
+        /* Reduced vertical padding for all main sections on mobile */
         .body-section,
         section {
-          padding-top: 3rem !important; /* Approximately 2-3 fingers gap from top */
-          padding-bottom: 3rem !important; /* Approximately 2-3 fingers gap from bottom */
+          padding-top: 2rem !important; /* Reduced to 2rem */
+          padding-bottom: 2rem !important; /* Reduced to 2rem */
           min-height: unset; /* Allow sections to shrink on mobile */
         }
 
-        /* Adjust specific sections if needed, though general rule above should cover it */
+        /* Ensure specific sections also follow the reduced padding */
         #000, #001, #002, #003 {
-            padding-top: 3rem !important;
-            padding-bottom: 3rem !important;
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
         }
 
         /* Adjust font size for smaller screens for better readability */
         h1 {
-          font-size: 2.2rem;
+          font-size: 2rem; /* Slightly smaller H1 */
         }
         h2 {
-          font-size: 1.8rem;
+          font-size: 1.6rem; /* Slightly smaller H2 */
         }
         .typewriter {
-          font-size: 1.8rem; /* Adjusted for mobile */
+          font-size: 1.6rem; /* Adjusted for mobile */
         }
 
         .body-para, .About-p {
-          font-size: 1rem;
+          font-size: 0.95rem; /* Slightly smaller paragraph text */
         }
 
         .Contact-web {
-          padding: 2rem 1rem; /* Adjust padding for contact form on mobile */
+          padding: 1.5rem 1rem; /* Adjust padding for contact form on mobile */
         }
 
         .navbar-brand .nav-logo {
-            height: 45px; /* Smaller logo on mobile */
+            height: 40px; /* Slightly smaller logo on mobile */
         }
       }
     </style>
